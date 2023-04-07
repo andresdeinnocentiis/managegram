@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_uuidfield.egg-info/PKG-INFO
+django_uuidfield.egg-info/SOURCES.txt
+django_uuidfield.egg-info/dependency_links.txt
+django_uuidfield.egg-info/not-zip-safe
+django_uuidfield.egg-info/requires.txt
+django_uuidfield.egg-info/top_level.txt
+uuidfield/__init__.py
+uuidfield/fields.py
+uuidfield/models.py
+uuidfield/tests/__init__.py
+uuidfield/tests/models.py
+uuidfield/tests/tests.py

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-&pox*gh_@52a7qzk1d-dv89vp_u%m-1^=!&uj0164j@*2%!6$e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -41,12 +42,77 @@ INSTALLED_APPS = [
     # Django Rest Framework:
     'rest_framework',
     
+    # CORS (Para poder conectar React/Vue con el puerto de Django y que le permita entrar):
+    # Previo, hacer: >> python -m pip install django-cors-headers
+    'corsheaders',
+    # Luego hay que agregar el MIDDLEWARE de CORS en MIDDLEWARE = []
+    
     # Own apps:
     'Base.apps.BaseConfig',
     
 ]
 
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+
+from datetime import timedelta
+
+# La siguiente configuración de SIMPLE_JWT fue copiada de:
+# https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": False,
+    "BLACKLIST_AFTER_ROTATION": False,
+    "UPDATE_LAST_LOGIN": False,
+
+    "ALGORITHM": "HS256",
+    "VERIFYING_KEY": "",
+    "AUDIENCE": None,
+    "ISSUER": None,
+    "JSON_ENCODER": None,
+    "JWK_URL": None,
+    "LEEWAY": 0,
+
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "user_id",
+    "USER_AUTHENTICATION_RULE": "rest_framework_simplejwt.authentication.default_user_authentication_rule",
+
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+    "TOKEN_TYPE_CLAIM": "token_type",
+    "TOKEN_USER_CLASS": "rest_framework_simplejwt.models.TokenUser",
+
+    "JTI_CLAIM": "jti",
+
+    "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
+    "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
+    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+
+    "TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainPairSerializer",
+    "TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSerializer",
+    "TOKEN_VERIFY_SERIALIZER": "rest_framework_simplejwt.serializers.TokenVerifySerializer",
+    "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
+    "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
+    "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
+}
+
+
+
 MIDDLEWARE = [
+    # Agregamos el corsheaders MIDDLEWARE (Hay que agregarlo arriba de todo siempre para que no interfiera con lo demas)
+    # LUEGO, hay que agregar el " CORS_ALLOW_ALL_ORIGINS = True " al final de todo (Hay distintas opciones, permitir q todos llamen a la API, 
+    # no permitir ninguno, o una lista de los permitidos)
+    'corsheaders.middleware.CorsMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,6 +189,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# STATICFILES_DIRS lo agregué yo para que me reconozca la estructura de carpetas dentro de static
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+
+MEDIA_URL = 'http://127.0.0.1:8000/static/media/' # I changed it and added this so I can get the images from the frontend
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    #'http://localhost:5173',
+    
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

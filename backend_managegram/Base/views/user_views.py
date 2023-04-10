@@ -226,19 +226,19 @@ def getAllClients(request):
 @permission_classes([IsAuthenticated])
 def getUserClients(request):
     user = request.user
-    suppliers = Client.objects.filter(user=user) # Si esto no funciona usar: request.data['user']
-    serializer = SupplierSerializer(suppliers, many=True) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
+    clients = Client.objects.filter(user=user) # Si esto no funciona usar: request.data['user']
+    serializer = ClientSerializer(clients, many=True) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
     return Response(serializer.data)
 
 
-# Create supplier:
+# Create client:
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def createClient(request):
     user = request.user
     data = request.data
     try:
-        supplier = Client.objects.create(
+        client = Client.objects.create(
             user = user,
             name = data['name'],
             first_name = data['first_name'],
@@ -250,10 +250,10 @@ def createClient(request):
         
         # La ShippingAddress la voy a agregar aparte (Quizás no la sabe al momento de crear el cliente)
         
-        serializer = SupplierSerializer(supplier, many=False)
+        serializer = ClientSerializer(client, many=False)
         return Response(serializer.data)
     except:
-        message = {'detail':'Supplier already exists'}
+        message = {'detail':'Client already exists'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -287,3 +287,85 @@ def deleteClient(request, pk):
     clientForDeletion = Client.objects.get(id=pk)
     clientForDeletion.delete()
     return Response('Client was deleted.')
+
+
+# SHIPPING ADDRESS VIEWS: 
+
+# Get all shipping addresses: 
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def getAllShippingAddresses(request):
+    shipping_addresses = ShippingAddress.objects.all()
+    serializer = ShippingAddressSerializer(shipping_addresses, many=True) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
+    return Response(serializer.data)
+
+
+# Get user shipping addresses: 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUserShippingAddresses(request):
+    user = request.user
+    shipping_addresses = ShippingAddress.objects.filter(user=user) # Si esto no funciona usar: request.data['user']
+    serializer = ShippingAddressSerializer(shipping_addresses, many=True) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
+    return Response(serializer.data)
+
+
+# Create shipping address:
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def createShippingAddress(request):
+
+    data = request.data
+    
+    try:
+        shipping_address = ShippingAddress.objects.create(
+            
+            client = data['client'],
+            street = data['street'],
+            st_num = data['st_num'],
+            city = data['city'],
+            state= data['state'],
+            country = data['country'],
+            zip_code = data['zip_code'],
+            other_details = data['other_details'],
+        )
+        
+        
+        serializer = ShippingAddressSerializer(shipping_address, many=False)
+        return Response(serializer.data)
+    except:
+        message = {'detail':'Shipping address already exists'}
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Update shipping address:
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def updateShippingAddress(request, pk):
+    shipping_address = ShippingAddress.objects.get(id=pk) 
+    
+    data = request.data
+    
+    shipping_address.street = data['street']
+    shipping_address.st_num = data['st_num']
+    shipping_address.city = data['city']
+    shipping_address.state = data['state']
+    shipping_address.country = data['country'] 
+    shipping_address.zip_code = data['zip_code'] 
+    shipping_address.other_details = data['other_details']
+
+        
+    shipping_address.save()
+    
+    serializer = ShippingAddressSerializer(shipping_address, many=False) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
+    
+    return Response(serializer.data)
+
+
+# Delete shipping address:
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def deleteShippingAddress(request, pk):
+    shippingAddressForDeletion = ShippingAddress.objects.get(id=pk)
+    shippingAddressForDeletion.delete()
+    return Response('Shipping address was deleted.')

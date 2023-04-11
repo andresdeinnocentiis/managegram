@@ -10,6 +10,8 @@ class Supplier(models.Model):
     address         = models.CharField(max_length=200, null=True, blank=True)
     other_details   = models.TextField(null=True, blank=True)
     
+    def __str__(self):
+        return self.name
 
 class Client(models.Model):
     user            = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
@@ -27,6 +29,8 @@ class Client(models.Model):
     def addresses(self):
         return self.get_addresses()
     
+    def __str__(self):
+        return self.name
 
 class ShippingAddress(models.Model):
     client          = models.ForeignKey(Client, on_delete=models.CASCADE, null=False, blank=False)
@@ -38,14 +42,25 @@ class ShippingAddress(models.Model):
     zip_code        = models.CharField(max_length=100, null=False, blank=False)
     other_details   = models.TextField(null=True, blank=True)
     
+    def __str__(self):
+        if self.zip_code:
+            return f"{self.street} {self.st_num}, {self.city}, {self.state}, {self.zip_code}, {self.country}"
+        else:
+            return f"{self.street} {self.st_num}, {self.city}, {self.state}, {self.country}"
 
 class Brand(models.Model):
+    user            = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     name            = models.CharField(max_length=200, null=False, blank=False)
     
+    def __str__(self):
+        return self.name
 
 class Category(models.Model):
+    user            = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     name            = models.CharField(max_length=200, null=False, blank=False)
 
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     supplier        = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=False)
@@ -61,12 +76,16 @@ class Product(models.Model):
     
     
 class Discount(models.Model):
+    user                = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     name            = models.CharField(max_length=100, null=True, blank=True)
     percentage      = models.DecimalField(max_digits=3, decimal_places=2, null=False, blank=False)
     conditions      = models.TextField(null=True, blank=True)
     
+    def __str__(self):
+        return f"{self.name} - {self.percentage}"
     
 class Order(models.Model):
+    user                = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     client              = models.ForeignKey(Client, on_delete=models.CASCADE, null=False, blank=False)
     shipping_address    = models.ForeignKey(ShippingAddress, on_delete=models.CASCADE, null=True, blank=True)
     discount            = models.ForeignKey(Discount, on_delete=models.SET_NULL, null=True, blank=True)
@@ -90,17 +109,27 @@ class Order(models.Model):
     def payments(self):
         return self.get_payments()
     
+    def __str__(self):
+        return f"{self.client} - {self.created_on}"
+    
 
 class OrderItem(models.Model):
     order               = models.ForeignKey(Order, on_delete=models.CASCADE, null=False, blank=False)
     product             = models.ForeignKey(Product, on_delete=models.CASCADE, null=False, blank=False)
+    name                = models.CharField(max_length=200, null=True, blank=True)
     qty                 = models.IntegerField(null=True, blank=True, default=0)
     price               = models.DecimalField(max_digits=16, decimal_places=2, null=True, blank=True)
     
+    def __str__(self):
+        return self.product
     
 class Payment(models.Model):
+    user                = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     client              = models.ForeignKey(Client, on_delete=models.CASCADE, null=False, blank=False)
     order               = models.ForeignKey(Order, on_delete=models.CASCADE, null=False, blank=False)
     amount              = models.DecimalField(max_digits=16, decimal_places=2, null=True, blank=True)
     paid_on             = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     receipt_image       = models.ImageField(null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.amount} for order: {self.order}"

@@ -207,7 +207,7 @@ def getUserCategories(request):
 # Get a category by Id:
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def getBrandById(request, pk):
+def getCategoryById(request, pk):
     
     user = request.user
     try:

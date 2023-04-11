@@ -26,16 +26,19 @@ urlpatterns = [
     #path('', TemplateView.as_view(template_name='index.html') ),
     
     path('api/users/', include('Base.urls.user_urls')),
-    path('api/clients/', include('Base.urls.user_urls')),
-    path('api/suppliers/', include('Base.urls.user_urls')),
+    path('api/clients/', include('Base.urls.client_urls')),
+    path('api/suppliers/', include('Base.urls.supplier_urls')),
+    path('api/shipping_addresses/', include('Base.urls.shipping_address_urls')),
     
     path('api/products/', include('Base.urls.product_urls')),
-    path('api/brands/', include('Base.urls.product_urls')),
-    path('api/categories/', include('Base.urls.product_urls')),
+    path('api/brands/', include('Base.urls.brand_urls')),
+    path('api/categories/', include('Base.urls.category_urls')),
     
     path('api/orders/', include('Base.urls.order_urls')),
-    path('api/payments/', include('Base.urls.order_urls')),
-    path('api/discounts/', include('Base.urls.order_urls')),
+    path('api/payments/', include('Base.urls.payment_urls')),
+    path('api/discounts/', include('Base.urls.discount_urls')),
+    path('api/brands/', include('Base.urls.brand_urls')),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

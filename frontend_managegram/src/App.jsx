@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import Layout from './components/Layout'
 import Home from './pages/Home'
+
 
 function App() {
 
@@ -16,6 +19,10 @@ function App() {
         {
           path: '/profile',
           element: <h1>Profile</h1>
+        },
+        {
+          path: '/analytics',
+          element: <h1>Analytics</h1>
         },
         {
           path: '/orders',
@@ -52,6 +59,20 @@ function App() {
       ]
     },
   ])
+
+  // TESTEANDO REDUX:
+  const { theme } = useSelector((state) => state.theme)
+
+  const element = document.getElementsByTagName('body')[0]
+
+  if (theme == 'light') {
+    element.classList.remove('body-dark')  
+    element.classList.add(`body-${theme}`)
+  } else if (theme == 'dark') {
+    element.classList.remove('body-light')
+    element.classList.add(`body-${theme}`)
+  }
+  // FIN TESTEO REDUX
 
   return (
     <div className="App">

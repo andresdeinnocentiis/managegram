@@ -2,9 +2,17 @@
     --mainColorLight:#FCFCFC;
     --mainColorDark:#22242F;
     --secondaryColorLight:#F7F7F7;
+    --thirdColorLight:#F5F5F9;
     --secondaryColorDark:#333647;
+    --thirdColorDark:#2B2C40;
     --mainColor:#8710D8;
     --mainColor2:#DA00D8;
     --mainColor3:#5624D0;
     --mainColor4:#453DD8;
+    --mainColor5:#696CFF;
+    --detailsColor1:#ff4343;
+    --detailsColor2:#FB4222;
+    --textColorLight:#CBCBE2;
+    --textColorDark: #566A7F;
+    --textColorViolet: #696CFF;
 }

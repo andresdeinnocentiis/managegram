@@ -17,6 +17,18 @@ function App() {
           element: Home()
         },
         {
+          path: '/about',
+          element: <h1>About</h1>
+        },
+        {
+          path: '/contact',
+          element: <h1>Contact</h1>
+        },
+        {
+          path: '/login',
+          element: <h1>Login</h1>
+        },
+        {
           path: '/profile',
           element: <h1>Profile</h1>
         },

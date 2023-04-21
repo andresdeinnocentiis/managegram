@@ -1,10 +1,11 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { Navbar } from './Navbar'
 
 function Layout() {
   return (
     <div>
-        <h1>Layout - Navbar</h1>
+        <Navbar />
         <Outlet />
         <h1>Layout - Footer</h1>
     </div>

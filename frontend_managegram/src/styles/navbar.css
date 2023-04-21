@@ -1,0 +1,59 @@
+@import './variables.css';
+
+
+.layout-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 3vw;
+}
+
+.nav-items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    width: 3vw;
+}
+
+.logo {
+    width: 100%;
+}
+
+.nav-link {
+    transition: all .5s;
+}
+
+.active {
+    color: var(--textColorViolet) !important;
+    transition: all .5s;
+}
+
+@media (min-width: 900px) {
+    .layout-navbar {
+        flex-direction: row;
+    }
+
+    .nav-items-container {
+        flex-direction: row;
+        width: 40%;
+        justify-content: space-between;
+    }
+
+    .logo-container {
+        width: 2.5vw;
+    }
+
+    .login-li {
+        padding-left: 2vw;
+    }
+
+    .body-light .login-li {
+        border-left: 2px solid var(--textColorDark);
+    }
+
+    .body-dark .login-li {
+        border-left: 2px solid var(--textColorLight);
+    }
+}

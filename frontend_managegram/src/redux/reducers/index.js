@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import productsReducers from "./productsReducers";
+import productsReducers from "./productReducers";
 import { themeChangeReducer } from "./themeReducers";
 
 

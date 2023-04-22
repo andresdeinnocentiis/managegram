@@ -1,8 +1,6 @@
 @import './variables.css';
 
-body {
-    height: 100vh;
-}
+
 .layout-navbar {
     display: flex;
     justify-content: space-between;
@@ -137,6 +135,17 @@ body {
 
 .body-dark .login-li {
     border-top: 2px solid var(--textColorLight);
+}
+
+.togglerIconContainer {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.togglerIcon {
+    font-size: 20px;
+    transition: all .5s;
 }
 
 @media (min-width: 768px) {

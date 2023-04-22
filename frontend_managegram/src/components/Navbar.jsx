@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeTheme } from '../redux/actions/themeActions'
 import { NavLink } from 'react-router-dom'
 import managegramLogo from '../assets/images/favicon2.png'
 import TogglerOpen from './Toggler'
@@ -40,12 +42,31 @@ export const Navbar = () => {
         navbarOpen ? setTogglerIcon("") : setTogglerIcon("open")
     }
 
+    const { theme } = useSelector((state) => state.theme)
+    
+    const dispatch = useDispatch()
+
+    const handleChangeTheme = () => {
+        if (theme == 'light') {
+            dispatch(changeTheme('dark'))
+        } else {
+            dispatch(changeTheme('light'))
+        }
+    }
+
     return (
     <nav className='layout-navbar'>
         <NavLink className="logo-container" to={'/'}>
             <img className='logo' src={managegramLogo} alt="Managegram Logo" />
         </NavLink>
         <ul className={`nav-items-container ${navbarOpen}`}>
+            <div className="togglerIconContainer" onClick={handleChangeTheme}>
+                {
+                    theme == 'dark' ?
+                    <i className="fa-solid fa-sun togglerIcon"></i> :
+                    <i className="fa-solid fa-moon togglerIcon"></i>
+                }
+            </div>
             {navItems.map((item) => {
                 return(
                     <li key={item.id} className={item.name == 'Login' ? "nav-li login-li" : 'nav-li'}>

@@ -11,4 +11,4 @@ const TogglerOpen = (props) => {
     )
 }
 
-export { TogglerOpen }
+export default TogglerOpen

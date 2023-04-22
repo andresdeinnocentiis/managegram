@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import managegramLogo from '../assets/images/favicon2.png'
-
+import TogglerOpen from './Toggler'
 
 const navItems = [
     {
@@ -37,7 +37,7 @@ export const Navbar = () => {
     
     const handleToggle = () => {
         navbarOpen ? setNavbarOpen("") : setNavbarOpen("nav__active")
-        navbarOpen ? setTogglerIcon("") : setTogglerIcon("toggle")
+        navbarOpen ? setTogglerIcon("") : setTogglerIcon("open")
     }
 
     return (
@@ -45,7 +45,7 @@ export const Navbar = () => {
         <NavLink className="logo-container" to={'/'}>
             <img className='logo' src={managegramLogo} alt="Managegram Logo" />
         </NavLink>
-        <ul className='nav-items-container'>
+        <ul className={`nav-items-container ${navbarOpen}`}>
             {navItems.map((item) => {
                 return(
                     <li key={item.id} className={item.name == 'Login' ? "nav-li login-li" : 'nav-li'}>
@@ -54,6 +54,9 @@ export const Navbar = () => {
                 )
             })}
         </ul>
+        <div className="burger">
+            <TogglerOpen onClick={handleToggle} toggleIcon={toggleIcon} />
+        </div>
     </nav>
   )
 }

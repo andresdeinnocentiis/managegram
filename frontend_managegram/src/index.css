@@ -30,7 +30,6 @@
   overflow-x: hidden;
 }
 
-
 .body-light {
   background-color: var(--thirdColorLight);
   color: var(--textColorDark);

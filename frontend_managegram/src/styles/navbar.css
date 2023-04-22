@@ -1,12 +1,14 @@
 @import './variables.css';
 
-
+body {
+    height: 100vh;
+}
 .layout-navbar {
     display: flex;
     justify-content: space-between;
     padding: 2vw 3vw;
     align-items: center;
-    
+    overflow: hidden !important;
 }
 
 .nav__toggler {
@@ -19,20 +21,23 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 90vh;
     padding: 100px 0;
+    overflow: hidden;
+    
 }
 
 .nav-items-container:not(.nav__active) {
     left: 100%;
-    transition: all 0.5s;
+    transition: left 0.5s;
 }
 
 .nav-items-container.nav__active {
     left: 0%;
-    transition: all 0.5s;
+    transition: left 0.5s;
+    
 }
 
 .body-light .nav-items-container {

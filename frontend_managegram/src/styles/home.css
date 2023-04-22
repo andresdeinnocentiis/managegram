@@ -1,0 +1,80 @@
+@import "../styles/variables.css";
+
+
+.hero-section {
+    display: flex;
+}
+
+.hero-text-container {
+    width: 100%;
+    
+}
+
+.hero-img-container {
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.cta-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--textColorViolet);
+    padding: 1rem 2rem;
+    width: fit-content;
+    border-radius: 10px;
+    margin-top: 2vw;
+    transition: all .5s;
+}
+
+.cta-btn p {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--mainColorLight) !important;
+}
+
+.cta-btn:hover, .cta-btn:focus {
+    cursor: pointer;
+    background-color: var(--detailsColor1);
+    transition: all .5s;
+}
+
+@media (min-width: 768px) {
+
+    .hero-section {
+        padding: 5rem 10rem;
+    }
+
+    .hero-text-container {
+        width: 65%;
+        right: 0;
+    }
+
+    .hero-img-container {
+        width: 65rem;
+        right: 10rem;
+    }
+
+    .hero-title {
+        font-size: 5vw;
+        font-weight: 800;
+    }
+
+    .hero-description {
+        font-size: 1.5vw;
+        line-height: 2.5vw;
+        width: 85%;
+    }
+    
+    .cta-btn {
+        font-size: 1.5vw;
+    }
+
+    
+
+}

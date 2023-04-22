@@ -7,6 +7,7 @@
     padding: 2vw 3vw;
     align-items: center;
     overflow: hidden !important;
+    z-index: 2;
 }
 
 .nav__toggler {
@@ -24,7 +25,7 @@
     height: 90vh;
     padding: 100px 0;
     overflow: hidden;
-    
+    top: 73.71px;
 }
 
 .nav-items-container:not(.nav__active) {
@@ -141,6 +142,14 @@
     width: fit-content;
     display: flex;
     align-items: center;
+}
+
+.togglerIconContainer:hover, .togglerIconContainer:focus {
+    cursor: pointer;
+    
+}
+.togglerIconContainer:hover .togglerIcon {
+    color: var(--textColorViolet);
 }
 
 .togglerIcon {

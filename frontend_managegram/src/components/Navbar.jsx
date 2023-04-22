@@ -42,6 +42,11 @@ export const Navbar = () => {
         navbarOpen ? setTogglerIcon("") : setTogglerIcon("open")
     }
 
+    const handleClickLink = () => {
+        setNavbarOpen("")
+        setTogglerIcon("")
+    }
+
     const { theme } = useSelector((state) => state.theme)
     
     const dispatch = useDispatch()
@@ -69,7 +74,7 @@ export const Navbar = () => {
             </div>
             {navItems.map((item) => {
                 return(
-                    <li key={item.id} className={item.name == 'Login' ? "nav-li login-li" : 'nav-li'}>
+                    <li onClick={handleClickLink} key={item.id} className={item.name == 'Login' ? "nav-li login-li" : 'nav-li'}>
                         <NavLink className='nav-link' to={item.route}>{item.name}</NavLink>
                     </li>
                 )

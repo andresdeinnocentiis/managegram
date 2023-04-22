@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Layout from './components/Layout'
 import Home from './pages/Home'

@@ -1,5 +1,5 @@
 import React from 'react'
-import stocksImg from '../assets/images/stocksPNG3.png'
+import stocksImg from '../assets/images/stockImage.png'
 
 export const HomeMainSection = () => {
   return (
@@ -11,9 +11,9 @@ export const HomeMainSection = () => {
                 <p>Get Started Today</p>
             </a>
         </div>
-        {/*<div className="hero-img-container">
+        <div className="hero-img-container">
             <img src={stocksImg} className="hero-img" alt="" />
-        </div> */}
+        </div> 
     </main>
   )
 }

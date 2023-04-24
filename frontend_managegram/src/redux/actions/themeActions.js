@@ -22,6 +22,8 @@ export const changeTheme = (newTheme) => async (dispatch, getState) => {
             payload: newTheme
         })
 
+        localStorage.setItem('theme', JSON.stringify(newTheme))
+
     } catch(error) {
         dispatch({
             type: SET_THEME_FAIL,

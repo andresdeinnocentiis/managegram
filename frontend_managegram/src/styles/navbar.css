@@ -36,7 +36,7 @@
 .nav-items-container.nav__active {
     left: 0%;
     transition: left 0.5s;
-    
+    z-index: 1;
 }
 
 .body-light .nav-items-container {

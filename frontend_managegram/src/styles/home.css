@@ -62,6 +62,7 @@
         transform: rotateY(180deg);
         align-self: center;
         right: 5rem;
+        overflow: hidden;
     }
 
     .body-dark .hero-img-container:before {

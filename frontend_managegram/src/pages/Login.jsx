@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { login } from '../redux/actions/userActions'
 
 export const Login = () => {
@@ -10,10 +10,26 @@ export const Login = () => {
 
     const dispatch = useDispatch()
 
+    const navigate = useNavigate()
+
+    const location = useLocation()
+    const redirect = location.search ? location.search.split('=')[1] : '/'
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { error, loading, userInfo } = userLogin
+
+    useEffect(()=> {
+        if(userInfo) {
+            navigate(redirect)
+        }
+    }, [navigate, userInfo, redirect])
+
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(login(username, password))
 
+        setUsername("")
+        setPassword("")
     }
 
     return (

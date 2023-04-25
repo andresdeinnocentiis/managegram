@@ -50,7 +50,7 @@ class ClientSerializer(serializers.ModelSerializer):
         
     def get_shipping_addresses(self, obj):
 
-        shipping_addresses = obj.shipping_address_set.all()
+        shipping_addresses = obj.shippingaddress_set.all()
         serializer = ShippingAddressSerializer(shipping_addresses, many=True)
         return serializer.data
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { login } from '../redux/actions/userActions'
 
 export const Login = () => {
 
@@ -12,6 +13,7 @@ export const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(login(username, password))
+
     }
 
     return (
@@ -31,11 +33,11 @@ export const Login = () => {
                     <div className="inputs-container">
                         <div className="input-wrapper">
                             <label htmlFor="username">Username</label>
-                            <input type="text" placeholder='Your username' />
+                            <input type="text" placeholder='Your username' value={username} onChange={(e) => setUsername(e.target.value)} />
                         </div>
                         <div className="input-wrapper">
                             <label htmlFor="password">Password</label>
-                            <input type="password" placeholder='Your password' />
+                            <input type="password" placeholder='Your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className="btn-container">
                             <button

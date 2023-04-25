@@ -66,7 +66,7 @@ class SupplierSerializer(serializers.ModelSerializer):
     products    = serializers.SerializerMethodField(read_only=True)
     
     class Meta:
-        model = Client
+        model = Supplier
         fields = '__all__'
 
         

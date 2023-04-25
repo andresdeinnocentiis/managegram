@@ -1,7 +1,7 @@
 import React from 'react'
 import { HomeMainSection } from '../pages_sections/HomeMainSection'
 
-function Home() {
+export const Home = () => {
 
     
 
@@ -11,5 +11,3 @@ function Home() {
         </>
     )
 }
-
-export default Home

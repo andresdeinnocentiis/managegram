@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Layout from './components/Layout'
-import Home from './pages/Home'
+import { Home } from './pages/Home'
+import { Login } from './pages/Login'
 
 
 function App() {
@@ -25,7 +26,11 @@ function App() {
         },
         {
           path: '/login',
-          element: <h1>Login</h1>
+          element: Login()
+        },
+        {
+          path: '/sign_up',
+          element: <h1>Sign Up</h1>
         },
         {
           path: '/profile',

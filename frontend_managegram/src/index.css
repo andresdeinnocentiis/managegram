@@ -2,6 +2,7 @@
 @import "./styles/variables.css";
 @import "./styles/navbar.css";
 @import "./styles/home.css";
+@import "./styles/login.css";
 
 :root {
   /* CODIGO POR DEFECTO DE VITE (LO DEJÉ POR EL FONT-FAMILY)

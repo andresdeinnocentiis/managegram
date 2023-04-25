@@ -1,0 +1,226 @@
+@import "../styles/variables.css";
+
+
+.login-page-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+    border-radius: 20px;
+    box-shadow: 26px 26px 26px 26px rgba(143,100,235,0.48);
+    -webkit-box-shadow: 0px 0px 26px -2px rgba(143,100,235,0.48);
+    -moz-box-shadow: 0px 0px 26px -2px rgba(143,100,235,0.48);
+    margin-top: 2rem;
+    background-color: var(--thirdColorLight);
+    color: var(--textColorDark);
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 2rem 0;
+    height: 60%;
+}
+
+.side-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--textColorViolet);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.side-box__title {
+    color: var(--mainColorLight);
+    font-size: 5vw;
+}
+
+.sign-up-btn {
+    background-color: var(--mainColorLight);
+    padding: .5rem 1rem;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 5vw;
+    transition: all .5s;
+}
+
+.sign-up-btn a {
+    transition: all .5s;
+}
+
+.form-link {
+    color: var(--textColorViolet) !important;
+    font-weight: 700;
+}
+
+.sign-up-btn:hover, .sign-up-btn:focus {
+    cursor: pointer;
+    background-color: var(--detailsColor3);
+    transition: all .5s;
+    color: var(--mainColorLight);
+}
+
+.sign-up-btn:hover a, .sign-up-btn:focus a {
+    color: var(--mainColorLight) !important;
+}
+
+.form-title {
+    font-size: 8vw;
+    margin-bottom: 2rem;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--textColorViolet);
+    color: var(--mainColorLight);
+    letter-spacing: 2px;
+    padding: 1rem 1rem;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 8vw;
+    transition: all .5s;
+    font-size: 5vw;
+    font-weight: 700;
+    border-style: none;
+    outline-style: none;
+}
+
+.form-btn:hover, .form-btn:focus {
+    cursor: pointer;
+    background-color: var(--detailsColor3);
+    transition: all .5s;
+}
+
+.input-wrapper input {
+    height: 3vw;
+    border-radius: 10px;
+    border-style: none;
+    outline-style: none;
+    padding: 1rem;
+    margin-top: 1rem;
+    transition: border .5s;
+}
+
+.input-wrapper input:focus, .input-wrapper input:hover {
+    border: 2px solid var(--textColorViolet);
+    transition: border .5s;
+}
+
+.input-wrapper label {
+    font-size: 4vw;
+}
+
+@media (min-width: 768px) {
+    
+    .login-page-container {
+        height: 90vh;
+    }
+
+    .form-container {
+        width: 60%;
+        height: 80vh;
+        display: flex;
+        flex-direction: row;
+        border-radius: 20px;
+        margin-top: 0;
+    }
+
+    .side-box {
+        background-color: var(--textColorViolet);
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0 2rem;
+        text-align: center;
+    }
+
+    .side-box__title {
+        font-size: 1.4vw;
+    }
+
+    .form-box {
+        background-color: var(--mainColorLight);
+        color: var(--textColorDark);
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5rem 0;
+        height: 100%;
+    }
+
+    .form-title {
+        font-size: 3vw;
+        margin-bottom: 0;
+    }
+
+    .form-btn {
+        padding: 1rem 2rem;
+        font-size: 1.3vw;
+        color: var(--mainColorLight);
+        width: 100%;
+        justify-self: flex-end;
+        font-weight: 500;
+    }
+
+    .sign-up-btn {
+        font-size: 1.2vw;
+    }
+
+    .inputs-container {
+        width: 80%;
+    }
+
+    .input-wrapper input {
+        height: 3vw;
+        border-radius: 10px;
+        border-style: none;
+        outline-style: none;
+        padding: 1rem;
+        margin-top: 1rem;
+        transition: border .5s;
+    }
+
+    .input-wrapper input:focus, .input-wrapper input:hover {
+        border: 2px solid var(--textColorViolet);
+        transition: border .5s;
+    }
+
+    .input-wrapper label {
+        font-size: 1.2vw;
+    }
+    
+
+}

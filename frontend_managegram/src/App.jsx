@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Layout from './components/Layout'
+import LayoutDashboard from './components/LayoutDashboard'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
+import { Dashboard } from './pages/Dashboard'
 
 
 function App() {
@@ -72,8 +74,18 @@ function App() {
           path: '/discounts',
           element: <h1>Discounts</h1>
         },
-      ]
-    },
+      ],
+      
+    }, {
+      path: '/dashboard',
+        element: <LayoutDashboard />,
+        children: [
+          {
+            path: '/dashboard',
+            element: Dashboard()
+          },
+        ]
+    }
   ])
 
   // TESTEANDO REDUX:

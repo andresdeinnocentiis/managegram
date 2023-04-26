@@ -13,7 +13,7 @@ const initialState = {
     userInfo: userInfoFromStorage
 }
 // LOGIN REDUCER:
-export const userLoginReducer = (state = {}, action) => {
+export const userLoginReducer = (state = initialState, action) => {
     switch(action.type) {
         case USER_LOGIN_REQUEST:
             return {loading:true}

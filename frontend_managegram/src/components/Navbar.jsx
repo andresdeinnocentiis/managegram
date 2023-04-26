@@ -48,6 +48,7 @@ export const Navbar = () => {
     }
 
     const { theme } = useSelector((state) => state.theme)
+    const { userInfo } = useSelector((state) => state.userLogin)
     
     const dispatch = useDispatch()
 
@@ -75,7 +76,11 @@ export const Navbar = () => {
             {navItems.map((item) => {
                 return(
                     <li onClick={handleClickLink} key={item.id} className={item.name == 'Login' ? "nav-li login-li" : 'nav-li'}>
-                        <NavLink className='nav-link' to={item.route}>{item.name}</NavLink>
+                        <NavLink className='nav-link' 
+                            to={item.name == 'Login' && userInfo ? '/profile' : item.route}
+                        >   
+                            {item.name == 'Login' && userInfo ? userInfo.username : item.name}
+                        </NavLink>
                     </li>
                 )
             })}

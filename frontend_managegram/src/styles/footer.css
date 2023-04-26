@@ -1,0 +1,122 @@
+@import "./variables.css";
+
+.footer {
+    background-color: var(--footerColor);
+    color: var(--mainColorLight);
+    padding: 2rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.brand-info-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.footer-columns-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-column h4 {
+    font-size: 6vw;
+}
+
+.footer-column a {
+    font-size: 5vw;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: var(--textColorLight) !important;
+}
+
+.copyrights {
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.footer-logo-container {
+    width: 4rem;
+}
+
+.footer-logo {
+    width: 100%;
+}
+
+.footer-brand {
+    font-size: 8vw;
+    color: var(--mainColor2);
+}
+
+
+@media (min-width: 768px)  {
+
+    .footer {
+        background-color: var(--footerColor);
+        color: var(--mainColorLight);
+        padding: 7rem 10rem 2rem 10rem;
+    }
+    
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .brand-info-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+        gap: 5rem;
+    }
+    
+    .footer-columns-container {
+        display: flex;
+        flex-direction: row;
+        gap: 7rem;
+    }
+    
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-column h4 {
+        font-size: 1.3vw;
+    }
+    
+    .footer-column a {
+        font-size: 1vw;
+    }
+
+    .footer-logo-container {
+        width: 7rem;
+    }
+
+    .footer-logo {
+        width: 100%;
+    }
+
+    .footer-brand {
+        font-size: 3vw;
+        color: var(--mainColor2);
+    }
+}

@@ -61,7 +61,7 @@
     letter-spacing: 1px;
 }
 
-.active {
+.nav-link.active {
     color: var(--textColorViolet) !important;
     transition: all .5s;
 }

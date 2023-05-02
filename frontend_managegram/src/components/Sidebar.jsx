@@ -60,11 +60,13 @@ export const Sidebar = (props) => {
                         <ul className="menu-links">
                             {sidebarItems.map((item) => {return (
                                 <li key={item.id} className="sidebar-link">
-                                    <NavLink className='sidebar-link-a' to={item.route}>
+                                    <NavLink className='sidebar-link__a' to={item.route}>
+                                    <div className="sidebar-link-wrapper">
                                         <div className="icon-text-container">
                                             <i className={`${item.icon} item-icon`}></i>
                                             {sidebarOpen && <p className="route-name">{item.name}</p>}
                                         </div>
+                                    </div>
                                     </NavLink>
                                 </li>
                             )})}

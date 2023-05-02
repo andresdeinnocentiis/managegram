@@ -7,7 +7,7 @@ import {
 // Cada Reducer tiene su propio state.
 
 const initialState = {
-    sidebarOpen: 'sidebar-open',
+    sidebarOpen: '',
     error: null,
     loading: false
 };

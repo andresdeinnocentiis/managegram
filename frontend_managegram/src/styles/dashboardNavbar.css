@@ -36,6 +36,17 @@
     align-items: center;
 }
 
+@media (min-width: 768px) {
 
+    .dashboard-nav {
+        justify-content: flex-end;
+    }
+
+    .dashboard-nav__ul {
+        width: 90%;
+        flex-direction: row-reverse;
+    }
+
+}
 
 

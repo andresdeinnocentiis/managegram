@@ -31,7 +31,7 @@ export const DashboardNavbar = () => {
         <nav className='dashboard-nav'>
             <div className="dashboard-nav__ul">
 
-                <i className="fa-solid fa-bars" onClick={handleToggle}></i>
+                <i className="fa-solid fa-bars burger" onClick={handleToggle}></i>
 
                 <div className="rest-dashboard-nav">
                     <div className="togglerIconContainer dashboardThemeIconContainer" onClick={handleChangeTheme}>

@@ -19,7 +19,7 @@ export const Footer = () => {
                             <h4>SECTIONS</h4>
                             <NavLink className="footer-link" to={'/'}>Home</NavLink>
                             <NavLink className="footer-link" to={'/about'}>About</NavLink>
-                            <NavLink className="footer-link" to={'/dashboard'}>Dashboard</NavLink>
+                            <NavLink className="footer-link" to={'/dashboard/'}>Dashboard</NavLink>
                         </div>
                         <div className="footer-column">
                             <h4>CONTACT</h4>

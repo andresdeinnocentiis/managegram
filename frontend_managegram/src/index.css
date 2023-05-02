@@ -4,6 +4,8 @@
 @import "./styles/home.css";
 @import "./styles/login.css";
 @import "./styles/footer.css";
+@import "./styles/sidebar.css";
+@import "./styles/dashboardNavbar.css";
 
 :root {
   /* CODIGO POR DEFECTO DE VITE (LO DEJÉ POR EL FONT-FAMILY)

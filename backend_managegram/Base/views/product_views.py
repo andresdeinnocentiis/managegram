@@ -24,9 +24,17 @@ def getAllProducts(request):
 # Get supplier's products: 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def getSupplierProducts(request):
-    supplier = request.data['supplier']
-    products = Product.objects.filter(supplier=supplier)
+def getSupplierProducts(request, pk):
+    #supplier = request.data['supplier']
+    products = Product.objects.filter(supplier=pk)
+    serializer = ProductSerializer(products, many=True) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
+    return Response(serializer.data)
+
+# Get user's products: 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUserProducts(request, pk):
+    products = Product.objects.filter(user=pk)
     serializer = ProductSerializer(products, many=True) #Siempre hay que serializar xq no se puede pasar un QuerySet object al frontend, solo se puede pasar un JSON
     return Response(serializer.data)
 

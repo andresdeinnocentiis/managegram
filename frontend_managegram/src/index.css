@@ -6,6 +6,7 @@
 @import "./styles/footer.css";
 @import "./styles/sidebar.css";
 @import "./styles/dashboardNavbar.css";
+@import "./styles/productsScreen.css";
 
 :root {
   /* CODIGO POR DEFECTO DE VITE (LO DEJÉ POR EL FONT-FAMILY)
@@ -61,4 +62,19 @@ a {
 
 .body-dark a {
   color: var(--textColorLight);
+}
+
+
+
+@media (min-width: 768px) {
+
+  .dashboard-layout-container {
+    overflow: visible;
+  }
+
+  .dashboard-layout {
+    padding: 0 15rem;
+    overflow: visible;
+  }
+
 }

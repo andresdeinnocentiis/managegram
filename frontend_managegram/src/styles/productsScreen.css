@@ -1,0 +1,32 @@
+@import "../styles/variables.css";
+
+
+
+.products-screen-container {
+    overflow: visible;
+}
+
+.products-section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    overflow: visible !important;
+    margin-bottom: 5rem;
+    border-radius: 15px;
+}
+
+.body-light .products-section-container {
+    background-color: white;
+    box-shadow: 0 0 .375rem .25rem rgba(161,172,184,.15);
+}
+
+.body-dark .products-section-container {
+    background-color: var(--footerColor);
+    box-shadow: 0 0 .375rem .25rem rgba(0,0,0,.15);
+}
+
+
+@media (min-width: 768px) {
+
+}

@@ -40,10 +40,12 @@
 
     .dashboard-nav {
         justify-content: flex-end;
+        margin: 0;
+        margin-top: 1rem;
     }
 
     .dashboard-nav__ul {
-        width: 90%;
+        width: 100%;
         flex-direction: row-reverse;
     }
 

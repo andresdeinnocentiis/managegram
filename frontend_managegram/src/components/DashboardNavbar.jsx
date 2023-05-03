@@ -41,6 +41,7 @@ export const DashboardNavbar = () => {
                             <i className="fa-solid fa-moon togglerIcon dashboardThemeIcon"></i>
                         }
                     </div>
+                    
 
                 </div>
 

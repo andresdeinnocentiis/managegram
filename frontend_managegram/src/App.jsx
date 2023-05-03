@@ -5,6 +5,7 @@ import LayoutDashboard from './components/LayoutDashboard'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
+import { Products } from './pages/Products'
 
 
 function App() {
@@ -71,7 +72,7 @@ function App() {
           },
           {
             path: '/dashboard/products',
-            element: <h1>Products</h1>
+            element: Products()
           },
           {
             path: '/dashboard/brands',

@@ -63,6 +63,7 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
+    user            = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     supplier        = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=False)
     product_code    = models.CharField(max_length=200, null=True, blank=True)
     name            = models.CharField(max_length=200, null=True, blank=True)

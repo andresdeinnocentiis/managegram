@@ -6,10 +6,12 @@ import { DashboardNavbar } from './DashboardNavbar'
 
 function LayoutDashboard() {
   return (
-    <div className='dashboard-layout'>
-        <DashboardNavbar />
-        <Sidebar />
-        <Outlet />
+    <div className='dashboard-layout-container'>
+        <div className="dashboard-layout">
+          <DashboardNavbar />
+          <Sidebar />
+          <Outlet />
+        </div>
         <Footer />
     </div>
   )

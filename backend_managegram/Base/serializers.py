@@ -78,10 +78,12 @@ class SupplierSerializer(serializers.ModelSerializer):
         
 
 class ProductSerializer(serializers.ModelSerializer):
-
+    supplier_name = serializers.ReadOnlyField(source='supplier.name')
+    brand_name = serializers.ReadOnlyField(source='brand.name')
+    category_name = serializers.ReadOnlyField(source='category.name')
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['id', 'user', 'supplier_name', 'supplier', 'product_code', 'name', 'brand', 'brand_name', 'category', 'category_name', 'description', 'price']
         
 
 class ShippingAddressSerializer(serializers.ModelSerializer):

@@ -76,14 +76,20 @@
     height: 3vw;
 }
 
-.table-row:hover {
+.body-light .table-row:hover {
     background-color: var(--softTone2);
     color: var(--footerColor);
     transition: all .5s;
 }
 
+.body-dark .table-row:hover {
+    background-color: var(--softTone1);
+    color: var(--footerColor);
+    transition: all .5s;
+}
+
 .price-col-head {
-    
+
 }
 
 @media (min-width: 768px) {

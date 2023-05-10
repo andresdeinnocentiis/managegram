@@ -26,14 +26,16 @@
   */
   font-family: 'Poppins', sans-serif;
 
+  scrollbar-color: var(--textColorViolet) rgba(0,0,0,0) !important;
+
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all .5s;
   overflow-x: hidden;
+  
 }
 
 .body-light {
@@ -70,11 +72,13 @@ a {
 
   .dashboard-layout-container {
     overflow: visible;
+    transition: all .5s;
   }
 
   .dashboard-layout {
     padding: 0 15rem;
     overflow: visible;
+    transition: all .5s;
   }
 
 }

@@ -7,10 +7,18 @@
 }
 
 .products-section-container {
-    min-height: 80vh;
-    overflow: visible !important;
+    height: 80vh;
     margin-bottom: 5rem;
     border-radius: 15px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+.products-section-container tbody {
+    overflow: scroll;
 }
 
 .body-light .products-section-container {
@@ -27,8 +35,16 @@
     width: 100%;
 }
 
-.filter-bar-container {
+.filter-add-container {
+    display: flex;
     margin: 2rem 0;
+    overflow: visible;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-bar-container {
+    width: 90%;
 }
 
 .search-input {
@@ -49,9 +65,19 @@
 
 .body-dark .search-input {
     background-color: var(--footerColor);
-    box-shadow: 0 0 .375rem .25rem rgba(0,0,0,.15);
+    
     color: var(--mainColorLight);
 }
+
+.body-light .filter-bar-container {
+    box-shadow: 0 0 .375rem .25rem rgba(161,172,184,.15);
+}
+
+.body-dark .filter-bar-container {
+    box-shadow: 0 0 .375rem .25rem rgba(0,0,0,.15);
+}
+
+
 
 .search-input:focus, .search-input:hover {
     border: 2px solid var(--detailsColor4);
@@ -88,8 +114,75 @@
     transition: all .5s;
 }
 
-.price-col-head {
+.btn-search-line {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 5%;
+    border-radius: 10px;
+    box-shadow: 0 0 .475rem .05rem rgba(0,0,0,.15);
+    transition: all .5s;
+    font-size: 1.5rem;
+}
 
+.body-light .btn-search-line {
+    background-color: white;
+}
+
+.body-dark .btn-search-line {
+    background-color: var(--footerColor);
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 .475rem .05rem rgba(0,0,0,.15);
+    transition: all .5s;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.body-light .modal-container {
+    background-color: white;
+}
+
+.body-dark .modal-container {
+    background-color: var(--footerColor);
+}
+
+.filter-modal-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+}
+
+.btn-search-line:hover, .btn-search-line:focus {
+    border: 2px solid var(--textColorDark);
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.filter-btn:hover, .filter-btn:focus {
+    transition: all .5s;
+    background-color: orange;
+    color: var(--textColorDark);
+}
+
+.add-btn:hover, .add-btn:focus {
+    transition: all .5s;
+    background-color: greenyellow;
+    color: var(--textColorDark);
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
 }
 
 @media (min-width: 768px) {

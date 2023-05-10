@@ -87,6 +87,10 @@ function App() {
             element: <h1>Discounts</h1>
           },
           {
+            path: '/dashboard/update-prices',
+            element: <h1>Update Prices</h1>
+          },
+          {
             path: '/dashboard/shipping-addresses',
             element: <h1>Shipping Addresses</h1>
           },

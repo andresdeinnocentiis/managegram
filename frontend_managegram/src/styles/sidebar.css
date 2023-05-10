@@ -10,6 +10,7 @@
     transition: all .5s;
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
     overflow: visible;
+    z-index: 1;
 }
 
 .sidebar .menu-links .icon-text-container {
@@ -44,6 +45,7 @@
     padding: .3rem .6rem;
     font-size: 1.2rem;
     font-weight: 900;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .body-light .sidebar-chevron {

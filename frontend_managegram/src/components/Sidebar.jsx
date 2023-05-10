@@ -27,9 +27,10 @@ export const Sidebar = (props) => {
         {id:6, name:"Orders",icon:"fa-solid fa-file-invoice",route:"/dashboard/orders"},
         {id:7, name:"Payments",icon:"fa-solid fa-money-check-dollar",route:"/dashboard/payments"},
         {id:8, name:"Discounts",icon:"fa-solid fa-percent",route:"/dashboard/discounts"},
-        {id:9, name:"Brands",icon:"fa-regular fa-copyright",route:"/dashboard/brands"},
-        {id:10, name:"Categories",icon:"fa-solid fa-list",route:"/dashboard/categories"},
-        {id:11, name:"Shipping Addresses",icon:"fa-solid fa-map-location-dot",route:"/dashboard/shipping-addresses"},
+        {id:9, name:"Update Prices",icon:"fa-solid fa-money-bill-trend-up",route:"/dashboard/update-prices"},
+        {id:10, name:"Brands",icon:"fa-regular fa-copyright",route:"/dashboard/brands"},
+        {id:11, name:"Categories",icon:"fa-solid fa-list",route:"/dashboard/categories"},
+        {id:12, name:"Shipping Addresses",icon:"fa-solid fa-map-location-dot",route:"/dashboard/shipping-addresses"},
     ]
 
     return (       
